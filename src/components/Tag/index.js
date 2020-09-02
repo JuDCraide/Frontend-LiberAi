@@ -2,12 +2,25 @@ import React from "react";
 
 import TagStyle from "./styles";
 
-function Tag({ children, color }) {
+export default function Tag({ children }) {
     return (
-        <TagStyle style={{ backgroundColor: color }}>
+        <TagStyle>
             <p>{children}</p>
         </TagStyle>
     );
 }
 
-export default Tag;
+export function TagDone({ children }) {
+    return (
+        <TagStyle style={{ backgroundColor: 'var(--green-color)' }}>
+            <p>{children}</p>
+        </TagStyle>
+    );
+}
+export function TagInactive({ children }) {
+    return (
+        <TagStyle style={{ backgroundColor: 'var(--inactive-color)' }}>
+            <p>{children}</p>
+        </TagStyle>
+    );
+}
