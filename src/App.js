@@ -2,6 +2,7 @@ import React from "react";
 import CheckButton from "./components/CheckButton";
 import Button from "./components/Button";
 import Tag, { TagInactive, TagDone } from "./components/Tag";
+import Video from "./components/Video";
 import {
   Text22Bold,
   Text20Bold,
@@ -54,6 +55,23 @@ function App() {
       <Text12BoldInactive>Teste</Text12BoldInactive>
       <Text12SemiBoldInactive>Teste</Text12SemiBoldInactive>
       <Text12RegularInactive>Teste</Text12RegularInactive>
+      <Video
+        status='Obrigatório' points={534} hours={2}
+        backgroundImage='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
+      />
+      <Video
+        inactive
+        points={234}
+        hours={6}
+        backgroundImage='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
+      />
+      <Video
+        done
+        status='Opcional'
+        points={408}
+        hours={5}
+        backgroundImage='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
+      />
     </div>
   );
 }
