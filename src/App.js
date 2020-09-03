@@ -1,5 +1,4 @@
 import React from "react";
-import CheckButton from "./components/CheckButton";
 import Button from "./components/Button";
 import Tag, { TagInactive, TagDone } from "./components/Tag";
 import Video from "./components/Video";
@@ -23,16 +22,20 @@ import {
   Text12BoldInactive,
   Text12SemiBoldInactive,
   Text12RegularInactive,
-} from "./components/Text"
+} from "./components/Text";
 
-import './App.css';
+import ContentInfo from "./components/ContentInfo";
+
+import "./App.css";
+import BigContainer from "./components/BigContainer";
+import Quizz from "./components/Quizz";
+import SpotlightVideo from "./components/SpotlightVideo";
 
 function App() {
   return (
     <div>
       <h1>Hello Liberaí</h1>
-      <CheckButton />
-      <Button color='var(--pink-color)'>Click me</Button>
+      <Button color="var(--pink-color)">Click me</Button>
       <Tag>+ 354</Tag>
       <TagInactive>+ 354</TagInactive>
       <TagDone>+ 354</TagDone>
@@ -55,23 +58,16 @@ function App() {
       <Text12BoldInactive>Teste</Text12BoldInactive>
       <Text12SemiBoldInactive>Teste</Text12SemiBoldInactive>
       <Text12RegularInactive>Teste</Text12RegularInactive>
-      <Video
-        status='Obrigatório' points={534} hours={2}
-        backgroundImage='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
-      />
-      <Video
-        inactive
-        points={234}
-        hours={6}
-        backgroundImage='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
-      />
-      <Video
-        done
-        status='Opcional'
-        points={408}
-        hours={5}
-        backgroundImage='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
-      />
+      <div>
+        <BigContainer mainTitle="Nossos Cursos" />
+        <div>
+          <Quizz />
+          <SpotlightVideo
+            title="Como economizar em momentos de crise"
+            autor="Com Thais Andrade"
+          />
+        </div>
+      </div>
     </div>
   );
 }

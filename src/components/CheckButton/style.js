@@ -6,6 +6,7 @@ const CheckButtonStyle = styled.button`
   border-radius: 50%;
   color: #fff;
   height: 1.4rem;
+  padding: 0;
   width: 1.4rem;
 `;
 
