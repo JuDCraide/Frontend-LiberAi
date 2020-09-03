@@ -2,7 +2,8 @@
   --primary-color: #032c55;
   --green-color: #1caa0a;
   --pink-color: #d31666;
-  --inactive-color:#98B1CB;
+  --inactive-color: #98b1cb;
+  --yellow-color: #ffd526;
 }
 
 * {
@@ -14,7 +15,7 @@
 body {
   background: #f5f9fd;
   -webkit-font-smoothing: antialiased;
-  color: var(--primary-color);
+  color: var(--primary-blue);
 }
 
 body,

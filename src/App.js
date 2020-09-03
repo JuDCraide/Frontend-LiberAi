@@ -1,4 +1,5 @@
 import React from "react";
+import { ThemeProvider } from "styled-components";
 import CheckButton from "./components/CheckButton";
 import Button from "./components/Button";
 import Tag, { TagInactive, TagDone } from "./components/Tag";
@@ -23,16 +24,19 @@ import {
   Text12BoldInactive,
   Text12SemiBoldInactive,
   Text12RegularInactive,
-} from "./components/Text"
+} from "./components/Text";
 
-import './App.css';
+import CourseContainer from "./components/CourseContainer";
+
+import "./App.css";
 
 function App() {
+  const [isChecked, setIsChecked] = React.useState(false);
+
   return (
     <div>
       <h1>Hello Liberaí</h1>
-      <CheckButton />
-      <Button color='var(--pink-color)'>Click me</Button>
+      <Button color="var(--pink-color)">Click me</Button>
       <Tag>+ 354</Tag>
       <TagInactive>+ 354</TagInactive>
       <TagDone>+ 354</TagDone>
@@ -56,21 +60,42 @@ function App() {
       <Text12SemiBoldInactive>Teste</Text12SemiBoldInactive>
       <Text12RegularInactive>Teste</Text12RegularInactive>
       <Video
-        status='Obrigatório' points={534} hours={2}
-        backgroundImage='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
+        status="Obrigatório"
+        points={534}
+        hours={2}
+        backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
       />
       <Video
         inactive
         points={234}
         hours={6}
-        backgroundImage='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
+        backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
       />
       <Video
         done
-        status='Opcional'
+        status="Opcional"
         points={408}
         hours={5}
-        backgroundImage='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80'
+        backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+      />
+      =======
+      <CourseContainer
+        status="Obrigatório"
+        isChecked={isChecked}
+        duration="8 horas"
+        pt="+435pt"
+        title="Juros Compostos Sobre Dívidas"
+        autor="Com Thais Andrade"
+        color="var(--pink-color)"
+      />
+      <CourseContainer
+        status="Obrigatório"
+        isChecked={isChecked}
+        pt="+435pt"
+        duration="8 horas"
+        title="Juros Compostos Sobre Dívidas"
+        autor="Com Thais Andrade"
+        color="var(--green-color)"
       />
     </div>
   );

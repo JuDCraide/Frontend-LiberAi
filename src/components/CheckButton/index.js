@@ -5,7 +5,7 @@ import CheckButtonStyle from "./style";
 function CheckButton() {
   return (
     <CheckButtonStyle>
-      <i class="material-icons">check_circle</i>
+      <i class="tiny material-icons">check</i>
     </CheckButtonStyle>
   );
 }
