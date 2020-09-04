@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Text22Bold, Text16Regular, Text20Bold } from "../Text";
-import RivalContainer from "../RivalContainer";
+import RivalContainer from "./RivalContainer";
 import Tag from "../Tag";
 
 import { Container, TitleContainer, ThemeContainer } from "./style";

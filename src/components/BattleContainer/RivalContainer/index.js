@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Text20Regular, Text16Bold, Text14Regular } from "../Text";
-import Button from "../Button";
+import { Text20Regular, Text16Bold, Text14Regular } from "../../Text";
+import Button from "../../Button";
 
 import { Container } from "./style";
 
