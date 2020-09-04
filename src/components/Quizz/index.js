@@ -2,37 +2,32 @@ import React from "react";
 
 import { Text22Bold, Text12Bold, Text18SemiBold } from "../Text";
 import Button from "../Button";
+import Tag from "../Tag";
 
-function Quizz() {
+import QuizzStyle, { QuizzTitleStyle } from "./styles";
+
+function Quizz({title, points}) {
   return (
-    <div
-      style={{
-        marginTop: "150px",
-        marginLeft: "40px",
-        width: "374px",
-        height: "224px",
-      }}
-    >
-      <div style={{ display: "flex", alignContent: "space-around" }}>
-        <Text22Bold style={{ marginRight: "83px" }}>
+    <QuizzStyle>
+      <div style={{ display: "flex", width:'100%', justifyContent: "space-between", alignItems:'center' }}>
+        <Text22Bold style={{marginRight:10}}>
           Quizz Relâmpago!
         </Text22Bold>
-        <Button color="var(--pink-color)">
-          <Text12Bold style={{ color: "#fff" }}>+500pt</Text12Bold>
-        </Button>
+        <Tag color="var(--pink-color)">{points}</Tag>
       </div>
-      <Text22Bold style={{ marginTop: "30px", textAlign: "center" }}>
-        Você sabe tudo
+      <QuizzTitleStyle>
+        <Text22Bold style={{ textAlign: "center", padding: '10px' }}>
+          {title}
       </Text22Bold>
-      <Text22Bold style={{ textAlign: "center" }}>sobre Juros?!</Text22Bold>
-      <div style={{ textAlign: "center", marginTop: "27px" }}>
+      </QuizzTitleStyle>
+      <div style={{ textAlign: "center" }}>
         <Button color="var(--pink-color)">
           <Text18SemiBold style={{ color: "#fff", padding: "5px 10px" }}>
             Aceito o desafio!
           </Text18SemiBold>
         </Button>
       </div>
-    </div>
+    </QuizzStyle >
   );
 }
 
