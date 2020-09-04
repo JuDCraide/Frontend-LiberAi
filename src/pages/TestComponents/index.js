@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../../components/Button";
 import Tag, { TagInactive, TagDone } from "../../components/Tag";
-import Video from "../../components/Video";
 import {
   Text22Bold,
   Text20Bold,
@@ -24,7 +23,6 @@ import {
   Text12RegularInactive,
 } from "../../components/Text";
 
-import ContentInfo from "../../components/ContentInfo";
 import HorizontalContainer from "../../components/HorizontalContainer";
 import Quizz from "../../components/Quizz";
 import SpotlightVideo from "../../components/SpotlightVideo";
