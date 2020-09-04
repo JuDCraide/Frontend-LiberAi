@@ -9,6 +9,7 @@ const TagStyle = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 10px;
+  background-color: var(--pink-color);
 
   p {
     text-align: center;
