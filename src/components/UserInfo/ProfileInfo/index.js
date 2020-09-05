@@ -1,13 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import { Text16Regular } from "../../Text";
+import { Text16Regular } from '../../Text';
 
-import { Container, ImgContainer, EditInfo } from "./style";
+import { Container, EditInfo } from './style';
+import RadialProgressBar from './RadialProgressBar';
+
+import profileImg from '../../../assets/AndressaProfile.jpg';
 
 function ProfileInfo() {
   return (
     <Container>
-      <ImgContainer />
+      <RadialProgressBar
+        percentage={50}
+        src={profileImg}
+        alt="Andressa Schinoff profile"
+      ></RadialProgressBar>
       <EditInfo>
         <Text16Regular>Meu Perfil</Text16Regular>
         <Text16Regular>Minhas conquistas</Text16Regular>
