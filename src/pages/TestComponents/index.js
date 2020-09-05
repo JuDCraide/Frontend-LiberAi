@@ -26,6 +26,7 @@ import {
 import HorizontalContainer from "../../components/HorizontalContainer";
 import Quizz from "../../components/Quizz";
 import SpotlightVideo from "../../components/SpotlightVideo";
+import UserInfo from "../../components/UserInfo";
 
 function TestComponents() {
   return (
@@ -64,6 +65,7 @@ function TestComponents() {
           />
         </div>
       </div>
+      <UserInfo />
     </div>
   );
 }
