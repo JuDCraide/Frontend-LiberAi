@@ -17,7 +17,7 @@ function RadialProgressBar({ percentage, alt, src, style }) {
           textSize: '16px',
           pathTransitionDuration: 0.5,
           pathColor: 'var(--yellow-color)',
-          trailColor: '#F5F9FD',
+          trailColor: 'var(--background-color)',
         })}
       >
         <ImageContainer>
