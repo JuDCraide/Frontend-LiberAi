@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const LessonStyle = styled.div`
-  height:90px;
+  min-height:90px;
   display: flex;
   flex-direction:column;
   justify-content:center;
@@ -13,6 +13,7 @@ const TagsStyle = styled.div`
   flex-direction:row;
   justify-content:space-between;
   align-items:center;
+  flex-wrap:wrap;
 `;
 
 export { LessonStyle, TagsStyle };
