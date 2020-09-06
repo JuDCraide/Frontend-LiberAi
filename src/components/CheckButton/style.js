@@ -5,9 +5,15 @@ const CheckButtonStyle = styled.button`
   border: none;
   border-radius: 50%;
   color: #fff;
-  height: 1.4rem;
+  height: 22px;
   padding: 0;
-  width: 1.4rem;
+  width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i{
+    font-size:20px;  
+  }
 `;
 
 export default CheckButtonStyle;
