@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
-const UserInfoStyle = styled.div`
+const MenuStyle = styled.div`
   display: flex;
   flex-direction:column;
   justify-content:center;
-  padding-left:10px;
-  margin: 10px 0;
+  padding-left:10px
 `;
 
 
-export { UserInfoStyle };
+export { MenuStyle };

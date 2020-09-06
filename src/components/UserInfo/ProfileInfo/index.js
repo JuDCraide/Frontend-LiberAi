@@ -1,28 +1,25 @@
 import React from 'react';
 
-import { Text16Regular } from '../../Text';
+import { Text22Bold, Text16RegularInactive } from '../../Text';
+import { TagLevel } from '../../Tag'
+import { UserInfoStyle } from './style';
 
-import { Container, EditInfo } from './style';
-import RadialProgressBar from './RadialProgressBar';
-
-import profileImg from '../../../assets/AndressaProfile.jpg';
-
-function ProfileInfo() {
-  return (
-    <Container>
-      <RadialProgressBar
-        percentage={50}
-        src={profileImg}
-        alt="Andressa Schinoff profile"
-      ></RadialProgressBar>
-      <EditInfo>
-        <Text16Regular>Meu Perfil</Text16Regular>
-        <Text16Regular>Minhas conquistas</Text16Regular>
-        <Text16Regular>Minha Jornada</Text16Regular>
-        <Text16Regular>Sair</Text16Regular>
-      </EditInfo>
-    </Container>
-  );
+function ProfileInfo({ name, level, levelName }) {
+    return (
+        <UserInfoStyle>
+            <Text22Bold>{name}</Text22Bold>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                <TagLevel
+                    style={{ marginRight: 10 }}
+                >
+                    NV. {level}
+                </TagLevel>
+                <Text16RegularInactive>
+                    {levelName}
+                </Text16RegularInactive>
+            </div>
+        </UserInfoStyle>
+    );
 }
 
 export default ProfileInfo;

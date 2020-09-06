@@ -26,7 +26,7 @@ import {
 import HorizontalContainer from "../../components/HorizontalContainer";
 import Quizz from "../../components/Quizz";
 import SpotlightVideo from "../../components/SpotlightVideo";
-import UserInfo from "../../components/UserInfo";
+import Divider from "../../components/Divider";
 
 function TestComponents() {
   return (
@@ -49,6 +49,7 @@ function TestComponents() {
       <Text12Bold>Teste</Text12Bold>
       <Text12SemiBold>Teste</Text12SemiBold>
       <Text12Regular>Teste</Text12Regular>
+      <Divider />
       <Text18RegularInactive>Teste</Text18RegularInactive>
       <Text16RegularInactive>Teste</Text16RegularInactive>
       <Text14RegularInactive>Teste</Text14RegularInactive>
@@ -65,7 +66,6 @@ function TestComponents() {
           />
         </div>
       </div>
-      <UserInfo />
     </div>
   );
 }

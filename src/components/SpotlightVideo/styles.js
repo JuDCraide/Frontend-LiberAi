@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const SpotlightStyle = styled.div`
     height: max-content;
-    padding: 24px;
+    padding: 24px 20px;
     display: flex;
     flex-direction:column;
     align-items: center;
@@ -11,7 +11,7 @@ const SpotlightStyle = styled.div`
     border-radius:25px;
 `;
 export const QuizzTitleStyle = styled.div`
-    background-color: #F5F9FD;
+    background-color: var(--background-color);
     border-radius: 5px;
     margin-top: 15px;
     margin-bottom: 15px;

@@ -22,7 +22,7 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  padding: 1.5rem;
+  padding: 24px 20px;
   background-color: #FFFFFF;
   border-radius: 25px;
 `;

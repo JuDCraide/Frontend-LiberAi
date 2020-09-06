@@ -4,6 +4,7 @@
   --pink-color: #d31666;
   --inactive-color: #98b1cb;
   --yellow-color: #ffd526;
+   --background-color: #f5f9fd;
 }
 
 * {
@@ -13,7 +14,7 @@
 }
 
 body {
-  background: #f5f9fd;
+  background: var( --background-color);
   -webkit-font-smoothing: antialiased;
   color: var(--primary-blue);
 }

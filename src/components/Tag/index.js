@@ -28,3 +28,18 @@ export function TagInactive({ children, style }) {
     </TagStyle>
   );
 }
+
+export function TagLevel({ children, style }) {
+  return (
+    <TagStyle
+      style={{ ...style, ...{ backgroundColor: "var(--background-color)" } }}
+    >
+      <p style={{
+        color: '#032C55',
+        fontSize: 14,
+        lineHeigth: 22,
+        fontWeight: 'bold'
+      }} > {children}</p>
+    </TagStyle>
+  );
+}
