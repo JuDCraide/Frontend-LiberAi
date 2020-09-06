@@ -1,25 +1,31 @@
 import React from 'react';
-import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
 
 import 'react-circular-progressbar/dist/styles.css';
 
-import { Container } from './style';
+import { Container, ImageContainer } from './style';
 
 function RadialProgressBar({ percentage, alt, src, style }) {
   return (
     <Container style={style}>
       <CircularProgressbarWithChildren
         value={percentage}
-        styles={{
-          root: { height: '172px', width: '172px' },
-          path: { stroke: '#FFD526' },
-        }}
+        styles={buildStyles({
+          rotation: (1 - percentage / 100),
+          strokeWidth: 10,
+          strokeLinecap: 'butt',
+          textSize: '16px',
+          pathTransitionDuration: 0.5,
+          pathColor: 'var(--yellow-color)',
+          trailColor: '#F5F9FD',
+        })}
       >
-        <img
-          style={{ width: '145px', height: '145px', borderRadius: '50%' }}
-          src={src}
-          alt={alt}
-        />
+        <ImageContainer>
+          <img
+            src={src}
+            alt={alt}
+          />
+        </ImageContainer>
       </CircularProgressbarWithChildren>
     </Container>
   );
