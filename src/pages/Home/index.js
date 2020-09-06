@@ -12,6 +12,7 @@ import RadialProgressBar from "../../components/UserInfo/RadialProgressBar"
 import ProfileMenu from "../../components/UserInfo/ProfileMenu";
 import ProfileInfo from "../../components/UserInfo/ProfileInfo";
 import NextLevelInfo from "../../components/UserInfo/NextLevelInfo";
+import Lesson from '../../components/UserInfo/Lesson'
 
 import logoImg from "../../assets/logo.png";
 import profileImg from "../../assets/AndressaProfile.jpg";
@@ -34,11 +35,32 @@ function Home() {
                         level={2}
                         levelName="Novata das Dívidas"
                     />
-                    <div style={{overflowX:'auto'}}>
-                    <NextLevelInfo
-                        nextLevel={3}
-                        prize='R$100 em empréstimo pessoal do seu banco'
-                    />
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowX: 'auto' }}>
+                        <NextLevelInfo
+                            nextLevel={3}
+                            prize='R$100 em empréstimo pessoal do seu banco'
+                        />
+                        <Lesson
+                            done
+                            tag='curso'
+                            time='5 horas'
+                            points='+651pt'
+                            title='Nome de Um Curso Hipotetico Aqui'
+                            subtitle='Com Thais Andrade'
+                        />
+                        <Lesson
+                            tag='vídeo'
+                            time='15 min'
+                            points='+161pt'
+                            title='Nome de Um Vídeo Hipotetico Aqui'
+                            subtitle='Com Thais Andrade'
+                        />
+                         <Lesson
+                            tag='quizz relâmpago'
+                            points='+100pt'
+                            title='Nome de Um Vídeo Hipotetico Aqui'
+                        />
+                        
                     </div>
                 </Container>
             </div>
@@ -51,6 +73,7 @@ function Home() {
                         A liberdade financeira na sua mão
                     </Text18Regular>
                 </ImageContainer>
+                
                 <HorizontalContainer mainTitle="Nossos Cursos">
                     <Course
                         status="Obrigatório"
@@ -98,6 +121,7 @@ function Home() {
                         hours="26min"
                     />
                 </MidColumn>
+                
                 <HorizontalContainer mainTitle="Nossos Vídeos">
                     <Course
                         status="Opcional"
