@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-const Container = styled.div`
-  height: 256px;
-  width: 379px;
+const UserInfoStyle = styled.div`
   display: flex;
+  flex-direction:column;
+  justify-content:center;
+  padding-left:10px;
+  margin: 10px 0;
 `;
 
-const EditInfo = styled.div`
-  padding-left: 23px;
-  padding-top: 61px;
-`;
 
-export { Container, EditInfo };
+export { UserInfoStyle };
