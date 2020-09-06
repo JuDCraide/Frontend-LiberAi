@@ -18,6 +18,7 @@ import Divider from '../../components/Divider';
 
 import logoImg from "../../assets/logo.png";
 import profileImg from "../../assets/AndressaProfile.jpg";
+import RankContainer from "../../components/SecondaryContent/RankContainer";
 
 function Home() {
     return (
@@ -37,12 +38,12 @@ function Home() {
                         level={2}
                         levelName="Novata das Dívidas"
                     />
-                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowX: 'auto', justifyContent:'space-around' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowX: 'auto'}}>
                         <NextLevelInfo
                             nextLevel={3}
                             prize='R$100 em empréstimo pessoal do seu banco'
                         />
-                        <LessonsContainer title='Lições Mandatórias de Fase'>
+                        <LessonsContainer title=''>
                             <Lesson
                                 done
                                 tag='curso'
@@ -51,7 +52,7 @@ function Home() {
                                 title='Nome de Um Curso Hipotetico Aqui'
                                 subtitle='Com Thais Andrade'
                             />
-                            <Divider/>
+                            <Divider />
                             <Lesson
                                 tag='vídeo'
                                 time='15 min'
@@ -59,7 +60,7 @@ function Home() {
                                 title='Nome de Um Vídeo Hipotetico Aqui'
                                 subtitle='Com Thais Andrade'
                             />
-                            <Divider/>
+                            <Divider />
                             <Lesson
                                 tag='quizz relâmpago'
                                 points='+100pt'
@@ -69,6 +70,7 @@ function Home() {
                     </div>
                 </Container>
             </div>
+            
             <div>
                 <ImageContainer>
                     <div>
@@ -165,8 +167,11 @@ function Home() {
                     />
                 </HorizontalContainer>
             </div>
+            
             <div>
+                <RankContainer>
 
+                </RankContainer>
             </div>
         </HomeStyle>
     );
