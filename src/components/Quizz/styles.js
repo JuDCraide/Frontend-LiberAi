@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const QuizzStyle = styled.div`
     flex:1;
-    padding: 24px;
+    padding: 24px 20px;
     display: flex;
     flex-direction:column;
     align-items: center;
@@ -14,7 +14,7 @@ export const QuizzTitleStyle = styled.div`
     display:flex;
     flex:1;
     align-items:center;
-    background-color: #F5F9FD;
+    background-color: var(--background-color);
     border-radius: 5px;
     margin-top: 25px;
     margin-bottom: 25px;
