@@ -1,9 +1,9 @@
 import React from "react";
 
 import VideoStyle from "./styles";
-import { Text12Regular, Text12RegularInactive } from "../Text";
-import Tag, { TagInactive, TagDone } from "../Tag";
-import CheckButton from "../CheckButton";
+import { Text12Regular, Text12RegularInactive } from "../../Text";
+import Tag, { TagInactive, TagDone } from "../../Tag";
+import CheckButton from "../../CheckButton";
 
 export default function Video({
   status,
