@@ -23,9 +23,9 @@ import {
   Text12RegularInactive,
 } from "../../components/Text";
 
-import HorizontalContainer from "../../components/HorizontalContainer";
-import Quizz from "../../components/Quizz";
-import SpotlightVideo from "../../components/SpotlightVideo";
+import HorizontalContainer from "../../components/MainContent/HorizontalContainer";
+import Quizz from "../../components/MainContent/Quizz";
+import SpotlightVideo from "../../components/MainContent/SpotlightVideo";
 import Divider from "../../components/Divider";
 
 function TestComponents() {

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Text22Bold } from "../Text";
+import { Text22Bold } from "../../Text";
 import { CoursesContainer, MainContainer } from "./style";
 
 function HorizontalContainer({ mainTitle, children }) {

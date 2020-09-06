@@ -1,10 +1,10 @@
 import React from "react";
 
 import HomeStyle, { ImageContainer, MidColumn } from "./styles";
-import HorizontalContainer from "../../components/HorizontalContainer";
-import Course from "../../components/Course";
-import Quizz from "../../components/Quizz";
-import SpotlightVideo from "../../components/SpotlightVideo";
+import HorizontalContainer from "../../components/MainContent/HorizontalContainer";
+import Course from "../../components/MainContent/Course";
+import Quizz from "../../components/MainContent/Quizz";
+import SpotlightVideo from "../../components/MainContent/SpotlightVideo";
 //import BattleContainer from "../../components/BattleContainer";
 import { Text18Regular } from "../../components/Text";
 import Container from "../../components/Container";
