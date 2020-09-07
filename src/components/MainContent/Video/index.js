@@ -21,6 +21,7 @@ export default function Video({
         <div
           style={{
             display: "flex",
+            flexDirection: "column",
             height: "100%",
             width: "100%",
             backgroundColor: "#00000090",
@@ -30,6 +31,12 @@ export default function Video({
             justifyContent: "center",
           }}
         >
+          <Text12RegularInactive >
+            <i
+              class="tiny material-icons"
+              style={{fontSize:32}}
+            >lock_outline</i>
+          </Text12RegularInactive>
           <Text12RegularInactive style={{ textAlign: "center" }}>
             Chegue no nível 4 para liberar esse curso
           </Text12RegularInactive>
