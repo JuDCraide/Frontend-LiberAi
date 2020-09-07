@@ -17,7 +17,7 @@ function LastGrup({ lastGrup, points }) {
                 >
                     {lastGrup}
                 </Text20SemiBold>
-                <TagDone  style={{marginBottom: 5}}>+{points}pts</TagDone>
+                {/*<TagDone  style={{marginBottom: 5}}>+{points}pts</TagDone>*/}
             </MainContent>
         </LastGrupStyle>
     );

@@ -22,11 +22,11 @@ function RankContainer({ style, alunos, points, myId }) {
                 <Text16Regular
                     style={{ textTransform: 'uppercase', marginRight: 8 }}
                 >Os queridinho da sala</Text16Regular>
-                <Tag>+{points}pts</Tag>
+                {/*<Tag>+{points}pts</Tag>*/}
             </HorizontalLine>
             {
                 topFive.map((aluno, index) => (
-                    <>
+                    <div key={aluno.id}>
                         <HorizontalLine key={aluno.id} style={aluno.id === myId ? { backgroundColor: 'var(--background-color)' } : null}>
                             <Text16Regular
                                 style={{ marginRight: 8 }}
@@ -34,7 +34,7 @@ function RankContainer({ style, alunos, points, myId }) {
                             <Text16Regular>+{aluno.points}pts</Text16Regular>
                         </HorizontalLine>
                         <Divider />
-                    </>
+                    </div>
                 ))
             }{
                 myIndex < 5 ? null : (
