@@ -12,7 +12,7 @@ function RankContainer({ style, children }) {
                 <Text22Bold style={{ width: '60%' }}>Turma dos Endividados</Text22Bold>
                 <div style={{dispaly:'flex', flexDirection:'column', alignItems:'center'}}>
                     <Text18Regular>
-                        <i class="tiny material-icons">person_outline</i>
+                        <i className="tiny material-icons">person_outline</i>
                     </Text18Regular>
                     <Text18Regular>826</Text18Regular>
                 </div>

@@ -15,7 +15,7 @@ function NextLevelInfo({ nextLevel, prize }) {
                 </Text16RegularInactive>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Text16RegularInactive>
-                        <i class="tiny material-icons">lock_outline</i>
+                        <i className="tiny material-icons">lock_outline</i>
                     </Text16RegularInactive>
                     <Text16RegularInactive>
                         Nível {nextLevel}

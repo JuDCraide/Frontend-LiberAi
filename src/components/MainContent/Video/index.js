@@ -33,7 +33,7 @@ export default function Video({
         >
           <Text12RegularInactive >
             <i
-              class="tiny material-icons"
+              className="tiny material-icons"
               style={{fontSize:32}}
             >lock_outline</i>
           </Text12RegularInactive>
