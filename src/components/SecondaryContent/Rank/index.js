@@ -4,6 +4,7 @@ import { HorizontalLine } from "./style";
 
 import { Text16Regular, Text14RegularInactive } from "../../Text";
 import Tag from "../../Tag";
+import Divider from "../../Divider";
 
 function RankContainer({ style, alunos, points, myId }) {
     const topFive = alunos.slice(0, 5);
@@ -16,15 +17,18 @@ function RankContainer({ style, alunos, points, myId }) {
                 <Text14RegularInactive>pts/semana</Text14RegularInactive>
             </HorizontalLine>
             <HorizontalLine style={{ backgroundColor: 'var(--background-color)' }}>
-                <Text16Regular>Os queridinho da sala</Text16Regular>
+                <Text16Regular style={{textTransform:'uppercase'}}>Os queridinho da sala</Text16Regular>
                 <Tag>+{points}pts</Tag>
             </HorizontalLine>
             {
                 topFive.map((aluno, index) => (
-                    <HorizontalLine key={aluno.id} style={aluno.id === myId ? { backgroundColor: 'var(--background-color)' } : null}>
-                        <Text16Regular>{index + 1}º {aluno.name}</Text16Regular>
-                        <Text16Regular>{aluno.points}</Text16Regular>
-                    </HorizontalLine>
+                    <>
+                        <HorizontalLine key={aluno.id} style={aluno.id === myId ? { backgroundColor: 'var(--background-color)' } : null}>
+                            <Text16Regular>{index + 1}º {aluno.name}</Text16Regular>
+                            <Text16Regular>{aluno.points}</Text16Regular>
+                        </HorizontalLine>
+                        <Divider />
+                    </>
                 ))
             }{
                 myIndex < 5 ? null : (
@@ -32,10 +36,12 @@ function RankContainer({ style, alunos, points, myId }) {
                         <HorizontalLine>
                             <Text16Regular>...</Text16Regular>
                         </HorizontalLine>
+                        <Divider />
                         <HorizontalLine style={{ backgroundColor: 'var(--background-color)' }}>
                             <Text16Regular>{myIndex + 1}º {me.name}</Text16Regular>
                             <Text16Regular>{me.points}</Text16Regular>
                         </HorizontalLine>
+                        <Divider />
                     </>
                 )
             }
