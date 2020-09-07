@@ -100,7 +100,7 @@ export function Text12SemiBold({ children, style }) {
 
 export function Text12Regular({ children, style }) {
     return (
-        <TextStyle style={style} color='var(--primary-color)' size={12} line={24} weight={'normal'}>
+        <TextStyle style={style} color='var(--primary-color)' size={12} line={18} weight={'normal'}>
             {children}
         </TextStyle>
     );
@@ -135,7 +135,7 @@ export function Text14RegularInactive({ children, style }) {
 
 export function Text12BoldInactive({ children, style }) {
     return (
-        <TextStyle style={style} color='var(--inactive-color)' size={12} line={24} weight={'bold'}>
+        <TextStyle style={style} color='var(--inactive-color)' size={12} line={18} weight={'bold'}>
             {children}
         </TextStyle>
     );
@@ -143,7 +143,7 @@ export function Text12BoldInactive({ children, style }) {
 
 export function Text12SemiBoldInactive({ children, style }) {
     return (
-        <TextStyle style={style} color='var(--inactive-color)' size={12} line={24} weight={600}>
+        <TextStyle style={style} color='var(--inactive-color)' size={12} line={18} weight={600}>
             {children}
         </TextStyle>
     );
@@ -151,7 +151,7 @@ export function Text12SemiBoldInactive({ children, style }) {
 
 export function Text12RegularInactive({ children, style }) {
     return (
-        <TextStyle style={style} color='var(--inactive-color)' size={12} line={24} weight={'normal'}>
+        <TextStyle style={style} color='var(--inactive-color)' size={12} line={18} weight={'normal'}>
             {children}
         </TextStyle>
     );
