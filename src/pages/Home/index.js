@@ -22,11 +22,14 @@ import RankContainer from "../../components/SecondaryContent/RankContainer";
 import Rank from "../../components/SecondaryContent/Rank";
 import LastGrup from "../../components/SecondaryContent/LastGrup";
 
+//import api from '../../services/api';
+
 function Home() {
+
     return (
         <HomeStyle>
             <div>
-                <Container style={{ position: "sticky", top: 0, height: 'calc(100vh - 60px)' }}>
+                <Container style={{ maxHeight: 'calc(100vh - 60px)' }}>
                     <div style={{ display: "flex" }}>
                         <RadialProgressBar
                             percentage={32}

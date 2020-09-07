@@ -14,7 +14,16 @@ const HomeStyle = styled.div`
       grid-template-columns: 300px 1fr;
     }
     @media (max-width: 700px) {
-
+      padding-right:25px;
+      display:flex;
+      flex-direction: column-reverse;
+      overflow-y:scroll;
+      height:fit-content;
+       & > div:first-child{
+        & > div:first-child{
+        height:fit-content;
+        }
+      }
   }
 `;
 
@@ -30,7 +39,11 @@ const ContentStyle = styled.div`
     @media (max-width: 1200px) {
       display: flex;
       flex-direction:column;
-  }
+    }
+    @media (max-width: 700px) {
+        overflow-y:hidden;
+        padding:0;
+      }
 `;
 
 const MidColumn = styled.div`
