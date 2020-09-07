@@ -11,7 +11,7 @@ function NextLevelInfo({ nextLevel, prize }) {
                 <Text16RegularInactive
                     style={{ marginRight: 5 }}
                 >
-                    Sua próxima conquista
+                    Próxima conquista
                 </Text16RegularInactive>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <Text16RegularInactive>
