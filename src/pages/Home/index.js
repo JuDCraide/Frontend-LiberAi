@@ -1,10 +1,10 @@
 import React from "react";
 
 import HomeStyle, { ImageContainer, MidColumn } from "./styles";
-import HorizontalContainer from "../../components/HorizontalContainer";
-import Course from "../../components/Course";
-import Quizz from "../../components/Quizz";
-import SpotlightVideo from "../../components/SpotlightVideo";
+import HorizontalContainer from "../../components/MainContent/HorizontalContainer";
+import Course from "../../components/MainContent/Course";
+import Quizz from "../../components/MainContent/Quizz";
+import SpotlightVideo from "../../components/MainContent/SpotlightVideo";
 //import BattleContainer from "../../components/BattleContainer";
 import { Text18Regular } from "../../components/Text";
 import Container from "../../components/Container";
@@ -12,9 +12,13 @@ import RadialProgressBar from "../../components/UserInfo/RadialProgressBar"
 import ProfileMenu from "../../components/UserInfo/ProfileMenu";
 import ProfileInfo from "../../components/UserInfo/ProfileInfo";
 import NextLevelInfo from "../../components/UserInfo/NextLevelInfo";
+import Lesson from '../../components/UserInfo/Lesson';
+import LessonsContainer from '../../components/UserInfo/LessonsContainer';
+import Divider from '../../components/Divider';
 
 import logoImg from "../../assets/logo.png";
 import profileImg from "../../assets/AndressaProfile.jpg";
+import RankContainer from "../../components/SecondaryContent/RankContainer";
 
 function Home() {
     return (
@@ -34,14 +38,39 @@ function Home() {
                         level={2}
                         levelName="Novata das Dívidas"
                     />
-                    <div style={{overflowX:'auto'}}>
-                    <NextLevelInfo
-                        nextLevel={3}
-                        prize='R$100 em empréstimo pessoal do seu banco'
-                    />
+                    <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowX: 'auto'}}>
+                        <NextLevelInfo
+                            nextLevel={3}
+                            prize='R$100 em empréstimo pessoal do seu banco'
+                        />
+                        <LessonsContainer title=''>
+                            <Lesson
+                                done
+                                tag='curso'
+                                time='5 horas'
+                                points='+651pt'
+                                title='Nome de Um Curso Hipotetico Aqui'
+                                subtitle='Com Thais Andrade'
+                            />
+                            <Divider />
+                            <Lesson
+                                tag='vídeo'
+                                time='15 min'
+                                points='+161pt'
+                                title='Nome de Um Vídeo Hipotetico Aqui'
+                                subtitle='Com Thais Andrade'
+                            />
+                            <Divider />
+                            <Lesson
+                                tag='quizz relâmpago'
+                                points='+100pt'
+                                title='Nome de Um Quiz Hipotetico Aqui'
+                            />
+                        </LessonsContainer>
                     </div>
                 </Container>
             </div>
+            
             <div>
                 <ImageContainer>
                     <div>
@@ -51,6 +80,7 @@ function Home() {
                         A liberdade financeira na sua mão
                     </Text18Regular>
                 </ImageContainer>
+
                 <HorizontalContainer mainTitle="Nossos Cursos">
                     <Course
                         status="Obrigatório"
@@ -98,6 +128,7 @@ function Home() {
                         hours="26min"
                     />
                 </MidColumn>
+
                 <HorizontalContainer mainTitle="Nossos Vídeos">
                     <Course
                         status="Opcional"
@@ -136,8 +167,11 @@ function Home() {
                     />
                 </HorizontalContainer>
             </div>
+            
             <div>
+                <RankContainer>
 
+                </RankContainer>
             </div>
         </HomeStyle>
     );

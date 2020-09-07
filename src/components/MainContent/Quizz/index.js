@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Text22Bold, Text18SemiBold } from "../Text";
-import Button from "../Button";
-import Tag from "../Tag";
+import { Text22Bold, Text18SemiBold } from "../../Text";
+import Button from "../../Button";
+import Tag from "../../Tag";
 
 import QuizzStyle, { QuizzTitleStyle } from "./styles";
 

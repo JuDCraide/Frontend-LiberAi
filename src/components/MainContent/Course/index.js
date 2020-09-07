@@ -1,7 +1,7 @@
 import React from "react";
 
 import Video from "../Video";
-import ContentInfo from "../ContentInfo";
+import ContentInfo from "../../ContentInfo";
 
 import CourseContainer from "./style";
 

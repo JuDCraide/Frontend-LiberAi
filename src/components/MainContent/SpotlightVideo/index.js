@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Text22Bold } from "../Text";
+import { Text22Bold } from "../../Text";
 import Video from "../Video";
-import ContentInfo from "../ContentInfo";
-import Tag from "../Tag";
+import ContentInfo from "../../ContentInfo";
+import Tag from "../../Tag";
 import SpotlightStyle from "./styles";
 
 function SpotlightVideo({ title, autor, hours, points }) {
