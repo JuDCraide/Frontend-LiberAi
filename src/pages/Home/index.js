@@ -19,6 +19,8 @@ import Divider from '../../components/Divider';
 import logoImg from "../../assets/logo.png";
 import profileImg from "../../assets/AndressaProfile.jpg";
 import RankContainer from "../../components/SecondaryContent/RankContainer";
+import Rank from "../../components/SecondaryContent/Rank";
+import LastGrup from "../../components/SecondaryContent/LastGrup";
 
 function Home() {
     return (
@@ -170,7 +172,24 @@ function Home() {
             
             <div>
                 <RankContainer>
-
+                    <LastGrup
+                        lastGrup='Os Bagunceiros'
+                        points={200}
+                    />
+                    <Rank alunos={[
+                        {id:1, name:'Victória Godoy', points:425},
+                        {id:2, name:'Letícia Bartolo', points:355},
+                        {id:3, name:'Thais Andrade', points:135},
+                        {id:4, name:'Victória Godoy2', points:42},
+                        {id:5, name:'Letícia Bartolo2', points:35},
+                        {id:6, name:'Thais Andrade2', points:13},
+                        {id:7, name:'Victória Godoy3', points:4},
+                        {id:8, name:'Letícia Bartolo3', points:3},
+                        {id:9, name:'Thais Andrade3', points:1},
+                    ]}
+                    points={324}
+                    myId={3}
+                    />
                 </RankContainer>
             </div>
         </HomeStyle>
