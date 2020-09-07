@@ -8,14 +8,14 @@ import { LessonStyle, TagsStyle } from './style';
 function Lesson({ done, tag, time, points, title, subtitle }) {
     return (
         <LessonStyle>
-            <TagsStyle style={{ paddingBottom: 3 }}>
-                <TagsStyle>
+            <TagsStyle>
+                <TagsStyle style={{marginBottom: 5}}>
                     {done && <Check />}
                     <TagLevel style={{ textTransform: 'uppercase' }}>{tag}</TagLevel>
                     <Text14Regular>{time}</Text14Regular>
                 </TagsStyle>
-                {done ? <TagDone>{points}</TagDone>
-                    : <Tag>{points}</Tag>
+                {done ? <TagDone  style={{marginBottom: 5}}>{points}</TagDone>
+                    : <Tag  style={{marginBottom: 5}}>{points}</Tag>
                 }
             </TagsStyle>
             <div style={{paddingLeft:10}}>

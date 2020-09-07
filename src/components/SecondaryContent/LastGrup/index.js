@@ -8,19 +8,16 @@ import { LastGrupStyle, MainContent } from './style';
 function LastGrup({ lastGrup, points }) {
     return (
         <LastGrupStyle>
-
-            <Text16RegularInactive
-                style={{ marginRight: 5 }}
-            >
+            <Text16RegularInactive>
                 Seu grupo na última semana
                 </Text16RegularInactive>
             <MainContent>
                 <Text20SemiBold
-                    style={{ textAlign: 'center' }}
+                    style={{ textAlign: 'center', marginBottom: 5 }}
                 >
                     {lastGrup}
                 </Text20SemiBold>
-                <TagDone>+{points}pts</TagDone>
+                <TagDone  style={{marginBottom: 5}}>+{points}pts</TagDone>
             </MainContent>
         </LastGrupStyle>
     );
