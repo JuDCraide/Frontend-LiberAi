@@ -21,7 +21,8 @@
 
 ## :information_source: Sobre o Projeto
 
-Promover a liberção de crédito financeiro para a classe média "C" por meio de educação financeira
+O Liberaí é uma plataforma que facilita o acesso ao crédito financeiro para pessoas que realmente precisam através da promoção da educação financeira e estímulo ao uso consciente do crédito alcançado através de uma trilha de aprendizagem, onde o usuário é o protagonista da sua própria jornada em busca de crédito financeiro.
+
 
 ---
 
@@ -51,11 +52,12 @@ Burocratização do alcance ao crédito financeiro.
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias
 
-- [ReactJs]()
-- [Axios]()
-- [Materialize-css]()
-- [Axios]()
-- [Styled-Components]()
+- [ReactJs](https://reactjs.org/)
+- [axios](https://github.com/axios/axios)
+- [Materialize-css](https://materializecss.com/)
+- [Styled-Components](https://styled-components.com/)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [React Circular Progressbar](https://www.npmjs.com/package/react-circular-progressbar)
 
 
 ### IDE
