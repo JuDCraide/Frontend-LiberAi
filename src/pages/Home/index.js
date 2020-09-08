@@ -23,6 +23,7 @@ import Rank from "../../components/SecondaryContent/Rank";
 //import LastGrup from "../../components/SecondaryContent/LastGrup";
 
 import api from '../../services/api';
+import { getId } from '../../services/auth'
 
 function Home() {
 
@@ -39,11 +40,12 @@ function Home() {
     const quizes = activities.filter(activity => activity.type === 'quiz');
     const random = [Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random()];
 
-    const percentage = Math.floor((myUser.score - (myUser.level * 100)) / ((myUser.level+1) ))
+    const percentage = Math.floor((myUser.score - (myUser.level * 100)) / ((myUser.level + 1)))
     console.log(quizes, myUser, myUser.score % ((myUser.level + 1) * 100));
 
-    useEffect(() => {
-        let id = "5f56a5253120b20017bc6f0f";
+    useEffect(async() => {
+        //let id = "5f56a5253120b20017bc6f0f";
+        let id = await getId();
         api.get(`/users/${id}`)
             .then(res => {
                 setMyUser(res.data)
@@ -116,7 +118,7 @@ function Home() {
                 <Container style={{ maxHeight: 'calc(100vh - 60px)' }}>
                     <div style={{ display: "flex" }}>
                         <RadialProgressBar
-                            percentage={ percentage }
+                            percentage={percentage}
                             src={myUser.profileImage}
                             alt={`${myUser.name} profile Image`}
                         />
@@ -244,7 +246,7 @@ function Home() {
                 </div>
 
                 <div>
-                    <RankContainer>
+                    <RankContainer style={{ position: 'sticky', top: 0, }}>
                         {/*<LastGrup
                             lastGrup='Os Bagunceiros'              //Users.length
                         />*/}

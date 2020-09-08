@@ -7,8 +7,8 @@ import { Text22Bold, Text18Regular } from "../../Text";
 
 function RankContainer({ style, children }) {
     return (
-        <Container>
-            <Title style={style}>
+        <Container style={style}s>
+            <Title>
                 <Text22Bold style={{ width: '60%' }}>Turma dos Endividados</Text22Bold>
                 <div style={{dispaly:'flex', flexDirection:'column', alignItems:'center'}}>
                     <Text18Regular>
