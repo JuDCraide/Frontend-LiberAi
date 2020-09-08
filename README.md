@@ -51,11 +51,12 @@ Burocratização do alcance ao crédito financeiro.
 
 O projeto foi desenvolvido utilizando as seguintes tecnologias
 
-- [ReactJs]()
-- [Axios]()
-- [Materialize-css]()
-- [Axios]()
-- [Styled-Components]()
+- [ReactJs](https://reactjs.org/)
+- [axios](https://github.com/axios/axios)
+- [Materialize-css](https://materializecss.com/)
+- [Styled-Components](https://styled-components.com/)
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [React Circular Progressbar](https://www.npmjs.com/package/react-circular-progressbar)
 
 
 ### IDE
