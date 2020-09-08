@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { Text16RegularInactive, Text20SemiBold } from '../../Text';
-import {TagDone} from '../../Tag';
+//import {TagDone} from '../../Tag';
 import { LastGrupStyle, MainContent } from './style';
 
 function LastGrup({ lastGrup, points }) {
@@ -17,7 +17,7 @@ function LastGrup({ lastGrup, points }) {
                 >
                     {lastGrup}
                 </Text20SemiBold>
-                <TagDone  style={{marginBottom: 5}}>+{points}pts</TagDone>
+                {/*<TagDone  style={{marginBottom: 5}}>+{points}pts</TagDone>*/}
             </MainContent>
         </LastGrupStyle>
     );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import HomeStyle, { ImageContainer, MidColumn, ContentStyle } from "./styles";
 import HorizontalContainer from "../../components/MainContent/HorizontalContainer";
@@ -14,66 +14,161 @@ import ProfileInfo from "../../components/UserInfo/ProfileInfo";
 import NextLevelInfo from "../../components/UserInfo/NextLevelInfo";
 import Lesson from '../../components/UserInfo/Lesson';
 import LessonsContainer from '../../components/UserInfo/LessonsContainer';
-import Divider from '../../components/Divider';
+//import Divider from '../../components/Divider';
 
 import logoImg from "../../assets/logo.png";
-import profileImg from "../../assets/AndressaProfile.jpg";
+//import profileImg from "../../assets/AndressaProfile.jpg";
 import RankContainer from "../../components/SecondaryContent/RankContainer";
 import Rank from "../../components/SecondaryContent/Rank";
-import LastGrup from "../../components/SecondaryContent/LastGrup";
+//import LastGrup from "../../components/SecondaryContent/LastGrup";
+
+import api from '../../services/api';
+import { getId } from '../../services/auth'
 
 function Home() {
+
+    const [myUser, setMyUser] = useState({});
+    const [myLevel, setMyLevel] = useState({});
+    const [nextLevel, setNextLevel] = useState({});
+    const [activities, setActivities] = useState([]);
+    const [Users, setUsers] = useState([]);
+    const nVideos = activities.filter(activity => activity.type === 'video').length;
+    const videos = activities.filter(activity => activity.type === 'video');
+    const nCourses = activities.filter(activity => activity.type === 'curso').length;
+    const courses = activities.filter(activity => activity.type === 'curso');
+    const nQuizes = activities.filter(activity => activity.type === 'quiz').length;
+    const quizes = activities.filter(activity => activity.type === 'quiz');
+    const random = [Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random()];
+
+    const percentage = Math.floor((myUser.score - (myUser.level * 100)) / ((myUser.level + 1)))
+    console.log(quizes, myUser, myUser.score % ((myUser.level + 1) * 100));
+
+    useEffect(async() => {
+        //let id = "5f56a5253120b20017bc6f0f";
+        let id = await getId();
+        api.get(`/users/${id}`)
+            .then(res => {
+                setMyUser(res.data)
+                //console.log(res.data);
+            })
+
+    }, [])
+
+    useEffect(() => {
+
+        api.get(`/levels/`)
+            .then(res => {
+                setMyLevel({
+                    ...res.data[myUser.level],
+                    id: myUser.level + 1,
+                })
+                setNextLevel({
+                    ...res.data[myUser.level + 1],
+                    id: myUser.level + 2,
+                })
+                //console.log(res.data[myUser.level+1]);
+            })
+
+    }, [myUser])
+
+    useEffect(() => {
+
+        api.get(`/activities/`)
+            .then(res => {
+                setActivities(res.data)
+                //console.log(res.data);
+            })
+
+    }, []);
+
+    useEffect(() => {
+
+        api.get(`/users/`)
+            .then(res => {
+                setUsers(res.data.filter(user => user.level === myUser.level))
+                //console.log(res.data.filter(user => user.level === myUser.level));
+            })
+
+    }, [myUser]);
+
+    async function updatePoints(points, activityId) {
+        let user = { ...myUser };
+        let userActivities = [...myUser.activities]
+        //console.log(myUser);
+        if (user.score + points >= (user.level + 1) * 100) {
+            console.log('passou nivel');
+            user.level += 1;
+        }
+        user.score += points;
+        userActivities.push(activityId);
+        user.activities = userActivities;
+        console.log(myUser, user, quizes, activityId);
+
+        api.put(`/users/${user._id}`, user)
+            .then(res => {
+                setMyUser(user)
+            })
+            .catch(err => console.log(err))
+
+    }
+
     return (
         <HomeStyle>
             <div>
-                <Container style={{ position: "sticky", top: 0, height: 'calc(100vh - 60px)' }}>
+                <Container style={{ maxHeight: 'calc(100vh - 60px)' }}>
                     <div style={{ display: "flex" }}>
                         <RadialProgressBar
-                            percentage={32}
-                            src={profileImg}
-                            alt="Andressa Schinoff profile"
+                            percentage={percentage}
+                            src={myUser.profileImage}
+                            alt={`${myUser.name} profile Image`}
                         />
                         <ProfileMenu />
                     </div>
                     <ProfileInfo
-                        name="Andressa Schinoff"
-                        level={2}
-                        levelName="Novata das Dívidas"
+                        name={myUser.name}
+                        level={myUser.level + 1}
+                        levelName={myLevel.title}
                     />
                     <div style={{ display: 'flex', flexDirection: 'column', flex: 1, overflowX: 'auto' }}>
                         <NextLevelInfo
-                            nextLevel={3}
-                            prize='R$100 em empréstimo pessoal do seu banco'
+                            nextLevel={myUser.level + 2}
+                            prize={nextLevel.bankPrize}
                         />
-                        <LessonsContainer title=''>
-                            <Lesson
-                                done
-                                tag='curso'
-                                time='5 horas'
-                                points='+651pt'
-                                title='Nome de Um Curso Hipotetico Aqui'
-                                subtitle='Com Thais Andrade'
-                            />
-                            <Divider />
-                            <Lesson
-                                tag='vídeo'
-                                time='15 min'
-                                points='+161pt'
-                                title='Nome de Um Vídeo Hipotetico Aqui'
-                                subtitle='Com Thais Andrade'
-                            />
-                            <Divider />
-                            <Lesson
-                                tag='quizz relâmpago'
-                                points='+100pt'
-                                title='Nome de Um Quiz Hipotetico Aqui'
-                            />
+
+                        <LessonsContainer
+                            title='Lições Mandatórias de fase'
+                        >
+                            {
+                                activities.length !== 0 &&
+                                !isNaN(nextLevel.id) &&
+                                Object.keys(nextLevel).length !== 0 &&
+                                Object.keys(myUser).length !== 0 &&
+                                activities.map(activity => {
+                                    //console.log(nextLevel.mandatoryActivities, activity._id);
+                                    if (nextLevel.mandatoryActivities.includes(activity._id)) {
+                                        return (
+                                            <Lesson
+                                                key={activity._id}
+                                                done={myUser.activities.includes(activity._id)}
+                                                tag={activity.type}
+                                                time={`${activity.time} min`}
+                                                points={`+${activity.score}pts`}
+                                                title={activity.title}
+                                                subtitle={`com ${activity.teacher}`}
+                                            />
+                                        )
+                                    }
+                                    return null;
+                                })/**/
+                            }
+
                         </LessonsContainer>
                     </div>
                 </Container>
             </div>
 
             <ContentStyle>
+
                 <div>
                     <ImageContainer>
                         <div>
@@ -85,111 +180,78 @@ function Home() {
                     </ImageContainer>
 
                     <HorizontalContainer mainTitle="Nossos Cursos">
-                        <Course
-                            status="Obrigatório"
-                            points="+340"
-                            hours="6min"
-                            backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
-                            title="Nome de Um Curso Hipotetico Aqui"
-                            autor="Com Thais Andrade"
-                        />
-                        <Course
-                            done
-                            status="Opcional"
-                            points="+340"
-                            hours="6min"
-                            backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
-                            title="Nome de Um Curso Hipotetico Aqui"
-                            autor="Com Thais Andrade"
-                        />
-                        <Course
-                            done
-                            status="Obrigatório"
-                            points="+340"
-                            hours="6min"
-                            backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
-                            title="Nome de Um Curso Hipotetico Aqui"
-                            autor="Com Thais Andrade"
-                        />
-                        <Course
-                            inactive
-                            status="Opcional"
-                            points="+340"
-                            hours="6min"
-                            backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
-                            title="Nome de Um Curso Hipotetico Aqui"
-                            autor="Com Thais Andrade"
-                        />
+                        {
+                            nCourses !== 0 &&
+                            !isNaN(nextLevel.id) &&
+                            Object.keys(nextLevel).length !== 0 &&
+                            Object.keys(myUser).length !== 0 &&
+                            random.map((num, index) => (
+                                <Course
+                                    key={index}
+                                    inactive={courses[Math.floor(num * nCourses)].levelRequired > myUser.level + 1}
+                                    done={myUser.activities.includes(courses[Math.floor(num * nCourses)].id)}
+                                    status={nextLevel.mandatoryActivities.includes(courses[Math.floor(num * nCourses)]) ? 'Obrigatório' : 'Opcional'}
+                                    points={`+${courses[Math.floor(num * nCourses)].score}pts`}
+                                    hours={`${courses[Math.floor(num * nCourses)].time} min`}
+                                    backgroundImage={courses[Math.floor(num * nCourses)].image}
+                                    title={courses[Math.floor(num * nCourses)].title}
+                                    autor={courses[Math.floor(num * nCourses)].teacher}
+                                />
+                            ))
+                        }
+
                     </HorizontalContainer>
 
                     <MidColumn>
-                        <Quizz title="Você sabe tudo  sobre Juros?!" points="+553" />
-                        <SpotlightVideo
-                            title="Como economizar em momentos de crise"
-                            autor="Com Thais Andrade"
-                            points="+553"
-                            hours="26min"
-                        />
+                        {nQuizes !== 0 &&
+                            <Quizz
+                                title={quizes[Math.floor(random[5] * nQuizes)].title}
+                                points={`+${quizes[Math.floor(random[5] * nQuizes)].score}pts`}
+                                funct={() => updatePoints(quizes[Math.floor(random[5] * nQuizes)].score, quizes[Math.floor(random[5] * nQuizes)]._id)}
+                            />
+                        }
+                        {nVideos !== 0 &&
+                            //console.log(nVideos) &&
+                            <SpotlightVideo
+                                title={videos[Math.floor(random[5] * nVideos)].title}
+                                autor={videos[Math.floor(random[5] * nVideos)].teacher}
+                                points={`+${videos[Math.floor(random[5] * nVideos)].score}pts`}
+                                hours={`${videos[Math.floor(random[5] * nVideos)].time} min`}
+                                img={videos[Math.floor(random[5] * nVideos)].image}
+                            />
+                        }
                     </MidColumn>
 
                     <HorizontalContainer mainTitle="Nossos Vídeos">
-                        <Course
-                            status="Opcional"
-                            points="+340"
-                            hours="6min"
-                            backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
-                            title="Nome de Um Vídeo Hipotetico Aqui"
-                            autor="Com Thais Andrade"
-                        />
-                        <Course
-                            done
-                            status="Obrigatório"
-                            points="+340"
-                            hours="6min"
-                            backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
-                            title="Nome de Um Vídeo Hipotetico Aqui"
-                            autor="Com Thais Andrade"
-                        />
-                        <Course
-                            done
-                            status="Opcional"
-                            points="+340"
-                            hours="6min"
-                            backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
-                            title="Nome de Um Vídeo Hipotetico Aqui"
-                            autor="Com Thais Andrade"
-                        />
-                        <Course
-                            inactive
-                            status="Obrigatório"
-                            points="+340"
-                            hours="6min"
-                            backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
-                            title="Nome de Um Vídeo Hipotetico Aqui"
-                            autor="Com Thais Andrade"
-                        />
+                        {
+                            nVideos !== 0 &&
+                            !isNaN(nextLevel.id) &&
+                            Object.keys(nextLevel).length !== 0 &&
+                            Object.keys(myUser).length !== 0 &&
+                            random.map((num, index) => (
+                                <Course
+                                    key={index}
+                                    inactive={videos[Math.floor(num * nVideos)].levelRequired > myUser.level + 1}
+                                    done={myUser.activities.includes(videos[Math.floor(num * nVideos)].id)}
+                                    status={nextLevel.mandatoryActivities.includes(videos[Math.floor(num * nVideos)]) ? 'Obrigatório' : 'Opcional'}
+                                    points={`+${videos[Math.floor(num * nVideos)].score}pts`}
+                                    hours={`${videos[Math.floor(num * nVideos)].time} min`}
+                                    backgroundImage={videos[Math.floor(num * nVideos)].image}
+                                    title={videos[Math.floor(num * nVideos)].title}
+                                    autor={videos[Math.floor(num * nVideos)].teacher}
+                                />
+                            ))
+                        }
                     </HorizontalContainer>
                 </div>
 
                 <div>
-                    <RankContainer>
-                        <LastGrup
-                            lastGrup='Os Bagunceiros'
-                            points={200}
-                        />
-                        <Rank alunos={[
-                            { id: 1, name: 'Victória Godoy', points: 425 },
-                            { id: 2, name: 'Letícia Bartolo', points: 355 },
-                            { id: 3, name: 'Thais Andrade', points: 135 },
-                            { id: 4, name: 'Victória Godoy2', points: 42 },
-                            { id: 5, name: 'Letícia Bartolo2', points: 35 },
-                            { id: 6, name: 'Thais Andrade2', points: 13 },
-                            { id: 7, name: 'Victória Godoy3', points: 4 },
-                            { id: 8, name: 'Letícia Bartolo3', points: 3 },
-                            { id: 9, name: 'Thais Andrade3', points: 1 },
-                        ]}
-                            points={324}
-                            myId={3}
+                    <RankContainer style={{ position: 'sticky', top: 0, }}>
+                        {/*<LastGrup
+                            lastGrup='Os Bagunceiros'              //Users.length
+                        />*/}
+                        <Rank alunos={Users}
+                            myId={myUser._id}                   //myUser.id
                         />
                     </RankContainer>
                 </div>

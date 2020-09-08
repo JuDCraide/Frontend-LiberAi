@@ -3,12 +3,13 @@ import React from "react";
 import { HorizontalLine } from "./style";
 
 import { Text16Regular, Text14RegularInactive } from "../../Text";
-import Tag from "../../Tag";
+//import Tag from "../../Tag";
 import Divider from "../../Divider";
 
 function RankContainer({ style, alunos, points, myId }) {
-    const topFive = alunos.slice(0, 5);
-    const myIndex = alunos.map(aluno => aluno.id).indexOf(myId);
+    const topTen = alunos.slice(0, 10);
+    const myIndex = alunos.map(aluno => aluno._id).indexOf(myId);
+    //console.log(myId);
     const me = alunos[myIndex];
     return (
         <div>
@@ -22,22 +23,22 @@ function RankContainer({ style, alunos, points, myId }) {
                 <Text16Regular
                     style={{ textTransform: 'uppercase', marginRight: 8 }}
                 >Os queridinho da sala</Text16Regular>
-                <Tag>+{points}pts</Tag>
+                {/*<Tag>+{points}pts</Tag>*/}
             </HorizontalLine>
             {
-                topFive.map((aluno, index) => (
-                    <>
-                        <HorizontalLine key={aluno.id} style={aluno.id === myId ? { backgroundColor: 'var(--background-color)' } : null}>
+                topTen.map((aluno, index) => (
+                    <div key={aluno._id}>
+                        <HorizontalLine key={aluno._id} style={aluno._id === myId ? { backgroundColor: 'var(--background-color)' } : null}>
                             <Text16Regular
                                 style={{ marginRight: 8 }}
                             >{index + 1}º {aluno.name}</Text16Regular>
-                            <Text16Regular>+{aluno.points}pts</Text16Regular>
+                            <Text16Regular>+{aluno.score}pts</Text16Regular>
                         </HorizontalLine>
                         <Divider />
-                    </>
+                    </div>
                 ))
             }{
-                myIndex < 5 ? null : (
+                myIndex < 10 ? null : (
                     <>
                         <HorizontalLine>
                             <Text16Regular>...</Text16Regular>
@@ -47,7 +48,7 @@ function RankContainer({ style, alunos, points, myId }) {
                             <Text16Regular
                                 style={{ marginRight: 8 }}
                             >{myIndex + 1}º {me.name}</Text16Regular>
-                            <Text16Regular>+{me.points}pts</Text16Regular>
+                            <Text16Regular>+{me.score}pts</Text16Regular>
                         </HorizontalLine>
                         <Divider />
                     </>

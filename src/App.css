@@ -16,11 +16,12 @@
 body {
   background: var( --background-color);
   -webkit-font-smoothing: antialiased;
-  color: var(--primary-blue);
+  color: var(--primary-color);
 }
 
 body,
 input,
 button {
   font-family: "Nunito Sans", sans-serif;
+  color:var(--primary-color);
 }

@@ -4,9 +4,12 @@ import ButtonStyle from "./styles";
 
 // import { Container } from './styles';
 
-function Button({ children, color }) {
+function Button({ children, color, funct }) {
   return (
-    <ButtonStyle style={{ backgroundColor: color }}>{children}</ButtonStyle>
+    <ButtonStyle 
+      onClick={() => funct()}
+      style={{ backgroundColor: color }}
+    >{children}</ButtonStyle>
   );
 }
 

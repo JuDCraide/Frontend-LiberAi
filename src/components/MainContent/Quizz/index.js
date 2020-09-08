@@ -6,7 +6,7 @@ import Tag from "../../Tag";
 
 import QuizzStyle, { QuizzTitleStyle } from "./styles";
 
-function Quizz({ title, points }) {
+function Quizz({ title, points, funct }) {
   return (
     <QuizzStyle>
       <div
@@ -26,7 +26,7 @@ function Quizz({ title, points }) {
         </Text22Bold>
       </QuizzTitleStyle>
       <div style={{ textAlign: "center" }}>
-        <Button color="var(--pink-color)">
+        <Button color="var(--pink-color)" funct={funct}>
           <Text18SemiBold style={{ color: "#fff", padding: "5px 10px" }}>
             Aceito o desafio!
           </Text18SemiBold>
