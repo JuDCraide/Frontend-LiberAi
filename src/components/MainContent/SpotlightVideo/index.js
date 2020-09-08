@@ -6,7 +6,7 @@ import ContentInfo from "../../ContentInfo";
 import Tag from "../../Tag";
 import SpotlightStyle from "./styles";
 
-function SpotlightVideo({ title, autor, hours, points }) {
+function SpotlightVideo({ title, autor, hours, points, img }) {
   return (
     <SpotlightStyle>
       <div
@@ -33,7 +33,7 @@ function SpotlightVideo({ title, autor, hours, points }) {
         <Video
           style={{ flex: 1 }}
           hours={hours}
-          backgroundImage="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+          backgroundImage={img}
           bgc="#00000000"
         />
       </div>

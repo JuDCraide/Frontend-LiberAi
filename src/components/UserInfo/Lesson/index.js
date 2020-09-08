@@ -4,6 +4,7 @@ import { Text16Bold, Text14Regular, Text12Regular } from '../../Text';
 import Tag, { TagLevel, TagDone } from '../../Tag'
 import Check from '../../CheckButton'
 import { LessonStyle, TagsStyle } from './style';
+import Divider from '../../Divider'
 
 function Lesson({ done, tag, time, points, title, subtitle }) {
     return (
@@ -22,6 +23,7 @@ function Lesson({ done, tag, time, points, title, subtitle }) {
                 <Text16Bold>{title}</Text16Bold>
                 <Text12Regular>{subtitle}</Text12Regular>
             </div>
+            <Divider />
         </LessonStyle >
     );
 }

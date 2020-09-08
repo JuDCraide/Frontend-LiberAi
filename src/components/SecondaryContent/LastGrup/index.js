@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { Text16RegularInactive, Text20SemiBold } from '../../Text';
-import {TagDone} from '../../Tag';
+//import {TagDone} from '../../Tag';
 import { LastGrupStyle, MainContent } from './style';
 
 function LastGrup({ lastGrup, points }) {
