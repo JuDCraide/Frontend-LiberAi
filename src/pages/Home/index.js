@@ -95,7 +95,7 @@ function Home() {
         let user = { ...myUser };
         let userActivities = [...myUser.activities]
         //console.log(myUser);
-        if (user.score + points >= (user.level + 1) * 100) {
+        if (user.score + points - (myUser.level * 100) >= (myUser.level + 1)*100) {
             console.log('passou nivel');
             user.level += 1;
         }

@@ -88,7 +88,7 @@ function Login({ history }) {
                             onChange={handleInputChangeFoto}
                         />
                     </Field>
-                    <Button onClick={() => logIn()}>Logar</Button>
+                    <Button onClick={() => logIn()}>Cadastrar</Button>
                 </Container>
             </div>
             <div />
